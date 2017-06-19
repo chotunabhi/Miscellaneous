@@ -1,18 +1,26 @@
 package com.java.miscellanoeus;
 
 public class Deer {
-public Deer() { System.out.print("Deer"); }
-public Deer(int age) { System.out.print("DeerAge"); }
-private boolean hasHorns() { return false; }
+	Dao dao = null;
+	
+	public Deer() {
+		
+		System.out.print("Deer");
+	}
 
+	public Deer(Dao dao) {
+		this.dao = dao;
+//		System.out.print("DeerAge");
+	}
 
-public static void main(String[] args) {
-Deer deer = new Reindeer(5);
-System.out.println(","+deer.hasHorns());
+	private boolean hasHorns() {
+		return false;
+	}
+	
+	@Override
+	public void finalize(){
+		dao = null;
+		Runtime.getRuntime().gc();
+		System.out.println("gc done");
+	}
 }
-}
-class Reindeer extends Deer {
-public Reindeer(int age) { System.out.print("Reindeer"); }
-public boolean hasHorns() { return true; }
-
- } 
