@@ -1,25 +1,30 @@
 package com.java.miscellanoeus;
 
 import java.io.IOException;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
+import java.util.stream.Collectors;
+
+import com.java.miscellanoeus.Dao;
 
 public class Test {
 	public static void main(String args[]) throws IOException {
 		List<Dao> daos = new LinkedList<>();
-		/*daos.add(new Dao(10, "abhi"));
+		daos.add(new Dao(10, "abhi"));
 		daos.add(new Dao(11, "gane"));
 		daos.add(new Dao(12, "raju"));
-		daos.add(new Dao(13, "ravi"));*/
+		daos.add(new Dao(13, "ravi"));
 		
 		for (Dao dao : daos) {
 			System.out.println(dao);
 		}
 		System.out.println("done");
+		List<String> names = Arrays.asList("a","b","c");
+		String string = names.stream().map(x -> x).collect(Collectors.joining("','"));
+		
+		System.out.println(string);
+		
 //		System.out.println(daos.get(0));
 
 //		System.out.println(synchronizedSet);
